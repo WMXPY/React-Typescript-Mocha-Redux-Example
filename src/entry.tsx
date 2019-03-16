@@ -7,7 +7,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
-import { App } from "./index";
+import { App } from "./app";
 
 declare const module: any;
 
@@ -23,7 +23,7 @@ const render = (Component: React.ComponentType<any>): void => {
 render(App);
 if (module.hot) {
 
-    module.hot.accept("./index", () => {
-        render(require("./index").default);
+    module.hot.accept("./app", () => {
+        render(require("./app").default);
     });
 }

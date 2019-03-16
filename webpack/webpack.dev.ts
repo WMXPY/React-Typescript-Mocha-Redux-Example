@@ -18,6 +18,7 @@ const paths: SudooWebpackPath = {
 };
 
 const setting: SudooWebpackSetting = {
+
     title: 'Example',
 };
 

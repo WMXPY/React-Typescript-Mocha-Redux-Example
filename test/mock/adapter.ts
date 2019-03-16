@@ -30,9 +30,7 @@ const registerSass = (): void => {
             return;
         }
 
-        const result: {
-            [key: string]: string;
-        } = {};
+        const result: Record<string, string> = {};
         matches.forEach((current: string) => {
 
             const text: string = current.split(' ')[0];
