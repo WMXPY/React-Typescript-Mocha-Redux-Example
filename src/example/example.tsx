@@ -6,7 +6,6 @@
 
 import { Connector } from "@sudoo/redux";
 import * as React from "react";
-import { RouteProps } from "react-router-dom";
 import { redText } from "../../style/example.scss";
 import { GlobalStore } from "../store/declare";
 import { setFoo } from "./store/action";
@@ -14,7 +13,7 @@ import { setFoo } from "./store/action";
 export type ExampleProps = {
 
     readonly bar: string;
-} & RouteProps;
+};
 
 type ConnectedStates = {
 
@@ -26,7 +25,7 @@ type ConnectedActions = {
     readonly setFoo: (foo: string) => void;
 };
 
-type ConnectedProps = ExampleProps & ConnectedStates & ConnectedActions;
+export type ConnectedExampleProps = ExampleProps & ConnectedStates & ConnectedActions;
 
 const connector = Connector.create<GlobalStore, ConnectedStates, ConnectedActions>()
     .connectStates(({ example }) => ({
@@ -37,7 +36,7 @@ const connector = Connector.create<GlobalStore, ConnectedStates, ConnectedAction
         setFoo,
     });
 
-export const ExampleBase: React.FC<ConnectedProps> = (props: ConnectedProps) => {
+export const ExampleBase: React.FC<ConnectedExampleProps> = (props: ConnectedExampleProps) => {
 
     return (<div className={redText}>
         {props.foo}
