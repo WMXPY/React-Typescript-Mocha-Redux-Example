@@ -4,7 +4,7 @@
  * @description Example
  */
 
-import { Connector, Store } from "@sudoo/redux";
+import { Connector } from "@sudoo/redux";
 import * as React from "react";
 import { GlobalStore } from "../store/declare";
 

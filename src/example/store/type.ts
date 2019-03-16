@@ -16,3 +16,8 @@ export type SetFooAction = {
 
     readonly foo: string;
 } & Action<ACTIONS.SET_FOO>;
+
+export const getDefaultExampleStore = (): ExampleStore => ({
+
+    foo: 'foo',
+});
