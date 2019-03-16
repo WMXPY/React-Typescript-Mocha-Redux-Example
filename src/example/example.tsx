@@ -7,6 +7,7 @@
 import { Connector } from "@sudoo/redux";
 import * as React from "react";
 import { RouteProps } from "react-router-dom";
+import { redText } from "../../style/example.scss";
 import { GlobalStore } from "../store/declare";
 import { setFoo } from "./store/action";
 
@@ -38,7 +39,7 @@ const connector = Connector.create<GlobalStore, ConnectedStates, ConnectedAction
 
 export const ExampleBase: React.FC<ConnectedProps> = (props: ConnectedProps) => {
 
-    return (<div>
+    return (<div className={redText}>
         {props.foo}
         <button onClick={() => props.setFoo(props.bar)}>SetFoo</button>
     </div>);
