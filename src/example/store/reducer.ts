@@ -8,16 +8,16 @@ import { Reducer } from "@sudoo/redux";
 import { ACTIONS, GlobalStore } from "../../store/declare";
 import { SetFooAction } from "./type";
 
-const reduceFoo: Reducer<GlobalStore, SetFooAction> = (state: GlobalStore, action: SetFooAction) => ({
+const reduceFoo: Reducer<GlobalStore, SetFooAction> = (state: GlobalStore | undefined, action: SetFooAction) => ({
 
-    ...state,
+    ...state as GlobalStore,
     example: {
-        ...state.example,
+        ...(state as GlobalStore).example,
         foo: action.foo,
     },
 });
 
-export const exampleReducers: Record<ACTIONS, Reducer> = {
+export const exampleReducers = {
 
     [ACTIONS.SET_FOO]: reduceFoo,
 };

@@ -6,29 +6,42 @@
 
 import { Connector } from "@sudoo/redux";
 import * as React from "react";
+import { RouteProps } from "react-router-dom";
 import { GlobalStore } from "../store/declare";
+import { setFoo } from "./store/action";
 
 export type ExampleProps = {
 
     readonly bar: string;
-};
+} & RouteProps;
 
-export type ConnectedExampleProps = {
+type ConnectedStates = {
 
     readonly foo: string;
 };
 
-const connector = Connector.create<GlobalStore, ConnectedExampleProps>()
-    .connectStates(({ example }: GlobalStore): ConnectedExampleProps => ({
+type ConnectedActions = {
+
+    readonly setFoo: (foo: string) => void;
+};
+
+type ConnectedProps = ExampleProps & ConnectedStates & ConnectedActions;
+
+const connector = Connector.create<GlobalStore, ConnectedStates, ConnectedActions>()
+    .connectStates(({ example }) => ({
 
         foo: example.foo,
     })).connectActions({
 
+        setFoo,
     });
 
-export const ExampleBase: React.FC<ExampleProps & ConnectedExampleProps> = (props: ExampleProps & ConnectedExampleProps) => {
+export const ExampleBase: React.FC<ConnectedProps> = (props: ConnectedProps) => {
 
-    return <div></div>;
+    return (<div>
+        {props.foo}
+        <button onClick={() => props.setFoo(props.bar)}>SetFoo</button>
+    </div>);
 };
 
 export const Example: React.ComponentType<ExampleProps> = connector.connect(ExampleBase);

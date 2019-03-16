@@ -14,11 +14,11 @@ const paths: SudooWebpackPath = {
     BUILD_DIR: resolve(__dirname, '..', 'dist'),
     COMMON_SASS_DIR: resolve(__dirname, '..', 'style', 'common'),
     TSCONFIG_PATH: resolve(__dirname, '..', 'typescript', 'tsconfig.dev.json'),
-    APP_ENTRY_FILE_NAME: 'index.tsx',
+    APP_ENTRY_FILE_NAME: 'entry.tsx',
 };
 
 const setting: SudooWebpackSetting = {
-    title: 'Red - Brontosaurus',
+    title: 'Example',
 };
 
 module.exports = SudooWebpack.create(paths, setting).development(8082);

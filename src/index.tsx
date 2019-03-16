@@ -6,21 +6,18 @@
 
 import { ReduxProvider } from "@sudoo/redux";
 import * as React from "react";
+import { RouterProps } from "react-router";
 import { HashRouter, Route } from "react-router-dom";
+import { Example } from "./example/example";
 import { store } from "./store/store";
 
-export class Entry extends React.Component {
+export const App: React.FC = () => (
 
-    public render(): JSX.Element {
+    <ReduxProvider redux={store}>
+        <HashRouter>
+            <Route render={(routeProps: RouterProps) => <Example bar="bar" {...routeProps} />} path="/" />
+        </HashRouter>
+    </ReduxProvider>
+);
 
-        return (
-            <ReduxProvider redux={store}>
-                <HashRouter>
-                    <Route />
-                </HashRouter>
-            </ReduxProvider>
-        );
-    }
-}
-
-export default Entry;
+export default App;

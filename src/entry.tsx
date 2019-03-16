@@ -7,21 +7,20 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
-import '../style/common/global.sass';
-import Entry from "./index";
+import { App } from "./index";
 
 declare const module: any;
 
-const render: (App: any) => void = (App: any): void => {
+const render = (Component: React.ComponentType<any>): void => {
 
     ReactDOM.render(
         (<AppContainer>
-            <App />
+            <Component />
         </AppContainer>),
         document.getElementById("container"));
 };
 
-render(Entry);
+render(App);
 if (module.hot) {
 
     module.hot.accept("./index", () => {
