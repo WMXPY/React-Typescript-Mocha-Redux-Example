@@ -5,7 +5,7 @@
  */
 
 import { SudooWebpack } from "@sudoo/webpack-react";
-import { SudooWebpackSetting, SudooWebpackPath } from "@sudoo/webpack-react/dist/declare";
+import { SudooWebpackPath, SudooWebpackSetting } from "@sudoo/webpack-react/dist/declare";
 import { resolve } from "path";
 
 const paths: SudooWebpackPath = {
